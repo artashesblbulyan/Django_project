@@ -4,10 +4,18 @@
     <title>Title</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/json_page.css'%}">
+    <ul>
+      <li><a href="page_4">Page_4</a></li>
+      <li><a href="introduction">Introduction</a></li>
+      <li><a href="json">Json</a></li>
+      <li><a href="/greeting">Greeting</a></li>
+      <li><a href="/first">First</a></li>
+    </ul>
+
 </head>
 <body>
 {% load static %}
-<img class="json" src="{% static 'img/django.jpeg' %}" alt="My image">
+<img class="json" src="{% static 'img/django.jpeg' %}" alt="My image" height="100px">
 {% for i in json %}
 {% for i_key, i_value in i.items %}
 

@@ -4,8 +4,29 @@ import json
 
 
 def greeting(request):
-
-    return HttpResponse('Hello')
+    text = """
+           <!DOCTYPE html>
+           <html lang="en">
+               <head>
+                   <meta charset="UTF-8">
+                   <title>Title</title>
+                    <link rel="stylesheet" type="text/css" href="/static/css/json_page.css">
+                   <ul>
+                       <li><a href="page_4">Page_4</a></li>
+                      <li><a href="introduction">Introduction</a></li>
+                      <li><a href="json">Json</a></li>
+                      <li><a href="/greeting">Greeting</a></li>
+                      <li><a href="/first">First</a></li>
+                    </ul>
+               </head>
+               <body>
+                   <div>
+                   HELLO Django
+                   </div>
+               </body>
+           </html>
+           """
+    return HttpResponse(text)
 
 def introduction(request):
     text = """
@@ -13,7 +34,15 @@ def introduction(request):
         <html lang="en">
             <head>
                 <meta charset="UTF-8">
+                <link rel="stylesheet" type="text/css" href="/static/css/json_page.css">
                 <title>Title</title>
+                 <ul>
+               <li><a href="page_4">Page_4</a></li>
+              <li><a href="introduction">Introduction</a></li>
+              <li><a href="json">Json</a></li>
+              <li><a href="/greeting">Greeting</a></li>
+              <li><a href="/first">First</a></li>
+            </ul>
             </head>
             <body>
                 <div>
