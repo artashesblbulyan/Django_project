@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/json_page.css'%}">
+</head>
+<body>
+{% load static %}
+<img class="json" src="{% static 'img/django.jpeg' %}" alt="My image">
+{% for i in json %}
+{% for i_key, i_value in i.items %}
+
+<div class ="json">
+    <h2 class="json">{{i_key}} {{i_value}} </h2>
+</div>
+{% endfor %}
+{% endfor %}
+</body>
+</html>
