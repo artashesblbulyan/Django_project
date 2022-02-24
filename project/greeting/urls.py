@@ -8,5 +8,6 @@ urlpatterns = [
     # path('introduction', views.introduction),
     path('film', views.create_film),
     path('delete_film', views.delete_film),
+    path('filter_film', views.filter_film),
 
 ]
