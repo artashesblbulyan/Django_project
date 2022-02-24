@@ -84,20 +84,16 @@ def create_film(request):
 
 
 def delete_film(request):
-    name = request.GET.get('film_name', None)
+    name = request.GET.get('name', None)
+    print(name)
     if name:
-        Film.objects.filter(name=request.GET['film_name']).delete()
+        Film.objects.filter(name=request.GET['name']).delete()
     a = render(request, "film.html")
     return HttpResponse(a)
 
 
 def filter_film(request):
-    rat = request.GET.get('rat', None)
-    if rat:
-        response = Film.objects.filter(rate=5)
-    else:
-        response = Film.objects.all()
-
+    response = Film.objects.filter(rate=5)
     return HttpResponse(response)
 
 
