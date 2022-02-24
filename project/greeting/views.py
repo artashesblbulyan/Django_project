@@ -1,5 +1,7 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render, HttpResponse
 import json
+from greeting.models import Film
+
 # Create your views here.
 
 
@@ -67,3 +69,26 @@ def json_reading(request):
         new_json = json.load(json_file)
 
     return render(request, "json_page.html", {"json": new_json})
+
+
+def create_film(request):
+    name = request.POST.get('film_name', None)
+    if name:
+        film_name = request.POST.get("film_name")
+        film_rate = request.POST.get("film_rate")
+        film_is_punlished = request.POST.get("film_is_punlished")
+        film_status = request.POST.get("film_status")
+        film = Film.objects.create(name=film_name, rate=film_rate, is_punlished=film_is_punlished, status=film_status)
+    a = render(request, "create_film.html")
+    return HttpResponse(a)
+
+
+def delete_film(request):
+    name = request.GET.get('name', None)
+    if name:
+        film = Film.objects.filter(name=request.GET['name']).delete()
+    a = render(request, "film.html")
+    return HttpResponse(a)
+
+
+
