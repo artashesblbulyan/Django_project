@@ -30,6 +30,7 @@ def greeting(request):
            """
     return HttpResponse(text)
 
+
 def introduction(request):
     text = """
         <!DOCTYPE html>
@@ -78,7 +79,11 @@ def create_film(request):
         film_rate = request.POST.get("film_rate")
         film_is_published = request.POST.get("film_is_published")
         film_status = request.POST.get("film_status")
-        Film.objects.create(name=film_name, rate=film_rate, is_published=film_is_published, status=film_status)
+        film_text = request.POST.get("text")
+        url = request.POST.get("url")
+        print(url)
+        Film.objects.create(name=film_name, rate=film_rate, is_published=film_is_published,
+                            status=film_status, text=film_text, geeks_field=url)
     a = render(request, "create_film.html")
     return HttpResponse(a)
 
@@ -87,13 +92,17 @@ def delete_film(request):
     name = request.GET.get('name', None)
     print(name)
     if name:
-        Film.objects.filter(name=request.GET['name']).delete()
+        Film.objects.filter(name=name).delete()
     a = render(request, "film.html")
     return HttpResponse(a)
 
 
 def filter_film(request):
-    response = Film.objects.filter(rate=5)
-    return HttpResponse(response)
+    rate = request.GET.get('rate', None)
+    if rate:
+        response = Film.objects.filter(rate=rate)
+    else:
+        response = Film.objects.all()
+    return render(request, "filter_film.html", {"response": response})
 
 

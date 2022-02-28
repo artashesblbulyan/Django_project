@@ -13,9 +13,11 @@ class Film(models.Model):
     rate = models.IntegerField(choices=STATUS_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     is_published = models.BooleanField()
+    text = models.TextField()
     status = models.CharField(max_length=3)
+    geeks_field = models.URLField(max_length=200)
 
     def __str__(self):
-        return f"{self.name}{self.rate}"
+        return f"{self.name} : {self.rate} : {self.created_at} : {self.is_published} : {self.status}"
 
 

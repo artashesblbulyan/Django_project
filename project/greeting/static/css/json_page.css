@@ -1,22 +1,6 @@
-h2{
-    font-weight: 200;
-    color: blue;
-}
-div {
-  height: 20px;
-  position: relative;
-  border: 1px solid green;
-}
 
-h2 {
-margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-ul {
+
+.menu-style {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -24,12 +8,12 @@ ul {
   background-color: #333;
 }
 
-li {
+.menu-style li {
   float: left;
 
 }
 
-li a {
+.menu-style li a {
   display: block;
   color: white;
   text-align: center;
@@ -37,7 +21,7 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+menu-style:hover {
   background-color: #111;
 }
 

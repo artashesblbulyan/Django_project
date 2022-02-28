@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>hello from django template</h1>
+<!--{{task_list }}-->
+
+{% for task in task_list %}
+{{task.name}}<br>
+{{task.get_status_display}}<br>
+{{user.username}}<br>
+{{task.create_at}}<br>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/create_film.css'%}">
+</head>
+<body>
+<!--<form  method="GET"> {% csrf_token %}-->
+<!--    <label for="rate">filter</label>-->
+<!--    <input id="rate" name="rate" type="text" value="5">-->
+<!--    <input type="submit" value="OK">-->
+<!--</form>-->
+
+  <ul class="menu-style">
+      <li><a href="filter_film">FILTER FILM</a></li>
+      <li><a href="delete_film">DELETE FILM</a></li>
+      <li><a href="film">FILM</a></li>
+  </ul>
+<form  method="get" class="form-style-9">
+     <ul>
+        <li>
+          <label for="rate" class="field-style">Filter</label>
+          <input list="rate" name="rate" id="rat" class="field-style" placeholder="filter rate">
+          <datalist id="rate">
+            <option value=1>
+            <option value=2>
+            <option value=3>
+            <option value=4>
+            <option value=5>
+          </datalist>
+          <input type="submit">
+        </li>
+    </ul>
+</form>
+{% for i in response %}
+<div class="dict-style-9 ">
+    {{ i.name }}
+    {{ i.rate }}
+    {{ i.created_at }}
+    {{ i.is_published }}
+    {{ i.status }}
+    <img src='{{ i.geeks_field }}' width="50px">
+</div>
+{% endfor %}
+</body>
+</html>

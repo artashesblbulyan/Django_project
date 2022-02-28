@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/json_page.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css'%}">
+
+</head>
+<body>
      <ul>
       <li><a href="page_4">Page_4</a></li>
       <li><a href="introduction">Introduction</a></li>
@@ -12,8 +15,6 @@
       <li><a href="/greeting">Greeting</a></li>
       <li><a href="/first">First</a></li>
     </ul>
-</head>
-<body>
 <H1>Heloo page 4</H1>
 {% for dict_key, dict_value in dict.items %}
 <div class="dict">

@@ -2,24 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/create_film.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css'%}">
     <title>Title</title>
 </head>
 <body>
-{% load static %}
-<form  method="POST"> {% csrf_token %}
-        <label for="name">film_name: </label>
-        <input id="film_name" name="film_name" type="text" value="film_name"><br>
-        <label for="name">film_rate: </label>
-        <input type="number" id="film_rate" name="film_rate" min="0" max="5" step="1" value="5"><br>
-        <label for="name">is_published</label><br>
-        <label for="name">True</label>
-        <input type="radio"  name="film_is_published" value="True">
-        <label for="name">False</label>
-        <input type="radio"  name="film_is_published" value="False"><br>
-        <label for="name" >film_status: </label>
-        <input id="film_status" name="film_status" type="text" value="new"><br>
-        <input type="submit" value="OK">
-    </form>
+    <ul class="menu-style">
+      <li><a href="filter_film">FILTER FILM</a></li>
+      <li><a href="delete_film">DELETE FILM</a></li>
+      <li><a href="film">FILM</a></li>
+    </ul>
+    <form  method="POST" class="form-style-9" enctype="multipart/form-data"> {% csrf_token %}
+        <ul>
+            <li>
+                <input id="film_name" name="film_name" type="text"  placeholder="film name" class="field-style field-split"/>
+                <input type="number" id="film_rate" name="film_rate" min="0" max="5" step="1" placeholder="film rate" class="field-style field-split"/>
+            </li>
+            <li>
+                <label for="film is published" class="field-style">True</label>
+                <input type="radio"  id="film is published" name="film_is_published" value="True" class="field-style">
+                <label for="film_is_published" class="field-style">False</label>
+                <input type="radio" id="film_is_published" name="film_is_published" value="False" class="field-style">
+                <label class="field-style">film is published</label>
+            </li>
+            <li>
+                <input id="film_status" name="film_status" type="text"  placeholder="film_status" class="field-style field-full">
+            </li>
+            <li>
+                <textarea id="text" name="text" class="field-style" rows="4" cols="50"  placeholder="film text"></textarea>
+            </li>
+            <li>
 
+                <input type="url" name="url" id="url" placeholder="https://example.com"  class="field-style field-split"
+                       pattern="https://.*" size="30" required>
+                <label for="url" class="field-style field-split">Enter an https:// Image URL:</label>
+            </li>
+            <li>
+                <input type="submit" value="OK">
+            </li>
+        </ul>
+    </form>
 </body>
 </html>
